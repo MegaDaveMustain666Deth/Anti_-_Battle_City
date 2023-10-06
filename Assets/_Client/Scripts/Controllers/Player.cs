@@ -13,4 +13,14 @@ public class Player : PersistentSingleton<Player>
     {
         _playerMovement.Move(direction);
     }
+    
+    public void setDirectionRotation(float direction)
+    {
+        _playerMovement.Rotation(direction);
+    }    
+
+    public void setDirectionRotationTurret(float direction)
+    {
+        _playerMovement.RotationTurret(direction);
+    }
 }
