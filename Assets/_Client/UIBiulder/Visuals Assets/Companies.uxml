@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UIBiulder/Stiles/menuButtonStile.uss?fileID=7433441132597879392&amp;guid=345cb6d5a3b45374c8fa2e4b9207e9ba&amp;type=3#menuButtonStile" />
+    <ui:Button text="Company 1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Company1" class="menu-buttons menu-Bottons" style="-unity-text-align: upper-center; width: 320px;" />
+    <ui:Button text="Company 2" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Company2" class="menu-buttons" style="top: auto; width: 320px; -unity-text-align: upper-center;" />
+    <ui:Button text="Company 3" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Company3" class="menu-buttons" style="width: 320px; -unity-text-align: upper-center;" />
+</ui:UXML>
