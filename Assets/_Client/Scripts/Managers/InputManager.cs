@@ -8,6 +8,14 @@ public class InputManager : PersistentSingleton<InputManager>
     {
         _playerInput = new PlayerInput();
         OnEnable();
+
+        AttachPlayer();
+    }
+
+    private void AttachPlayer()
+    {
+        _playerInput.Player.Move.performed += context => Player.Instance.SetSoundMoving();
+        _playerInput.Player.Move.canceled += context => Player.Instance.SetSoundRunning();
     }
 
     public void OnEnable()
@@ -22,8 +30,8 @@ public class InputManager : PersistentSingleton<InputManager>
 
     private void Update()
     {
-        Player.Instance.setDirectionMove(_playerInput.Player.Move.ReadValue<float>());
-        Player.Instance.setDirectionRotation(_playerInput.Player.Rotation.ReadValue<float>());
-        Player.Instance.setDirectionRotationTurret(_playerInput.Player.RotationTower.ReadValue<float>());
+        Player.Instance.SetDirectionMove(_playerInput.Player.Move.ReadValue<float>());
+        Player.Instance.SetDirectionRotation(_playerInput.Player.Rotation.ReadValue<float>());
+        Player.Instance.SetDirectionRotationTurret(_playerInput.Player.RotationTower.ReadValue<float>());
     }
 }
