@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class MenuController : MonoBehaviour
     private VisualElement _CompaniesButtons;
     private VisualElement _currentListLevels;
 
+    private DataSave.Save save;
+    private int _maxCompany;
+    private int _maxLevel;
+
     [Header("Visuals Tree Assets")] // trees aseets
     [SerializeField] private VisualTreeAsset _CompaniesAsset;
     [SerializeField] private VisualTreeAsset _firstMenuAsset;
@@ -27,6 +32,7 @@ public class MenuController : MonoBehaviour
     private void Awake()
     {
         _doc = GetComponent<UIDocument>();
+        FindObjectOfType<SaveManager>().loadGameData();
 
         _conteyner = _doc.rootVisualElement.Q<VisualElement>("interehtable");
         _CompaniesButtons = _CompaniesAsset.CloneTree();
@@ -34,6 +40,12 @@ public class MenuController : MonoBehaviour
         _Settings = _settingsAsset.CloneTree();
 
         OpenFirstMenu();
+    }
+
+    public void LoadData()
+    {
+        _maxCompany = save.GetCompany();
+        _maxLevel = save.GetLevel();
     }
 
     private void OpenFirstMenu()
@@ -61,18 +73,30 @@ public class MenuController : MonoBehaviour
         Button Company2 = _conteyner.Q<Button>("Company2");
         Button Company3 = _conteyner.Q<Button>("Company3");
 
-        Company1.clicked += () => OpenListLevels(level_1);
-        Company2.clicked += () => OpenListLevels(level_2);
-        Company3.clicked += () => OpenListLevels(level_3);
+        Company1.clicked += () => OpenListLevels(level_1, 0);
+        Company2.clicked += () => OpenListLevels(level_2, 1);
+        Company3.clicked += () => OpenListLevels(level_3, 2);
     }
 
-    private void OpenListLevels(VisualTreeAsset name)
+    private void OpenListLevels(VisualTreeAsset name, int number)
     {
-        _currentListLevels = name.CloneTree(); // receive button clicked
-        _conteyner.Clear();
-        _conteyner.Add(_currentListLevels); // clean/donload
-        _backButton = _conteyner.Q<Button>("BackButton");
-        _backButton.clicked += OpenFirstMenu;
+        if (number <= _maxCompany)
+        {
+            _currentListLevels = name.CloneTree(); // receive button clicked
+            _conteyner.Clear();
+            _conteyner.Add(_currentListLevels); // clean/donload
+            for (int i = 1; i <= 5; i++)
+            {
+                Button LevelButton = _conteyner.Q<Button>("level" + i as string);
+                if (i <= _maxLevel) LevelButton.clicked += () => Play(number + LevelButton.name);
+            }
+            _backButton = _conteyner.Q<Button>("BackButton");
+            _backButton.clicked += OpenFirstMenu;
+        }
+    }
+    private void Play(string level)
+    {
+        SceneManager.LoadScene(level);
     }
 
     private void OpenSettings()
