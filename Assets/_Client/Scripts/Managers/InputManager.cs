@@ -16,6 +16,8 @@ public class InputManager : PersistentSingleton<InputManager>
     {
         _playerInput.Player.Move.performed += context => Player.Instance.SetSoundMoving();
         _playerInput.Player.Move.canceled += context => Player.Instance.SetSoundRunning();
+
+        _playerInput.Player.Shoot.performed += contxt => Player.Instance.Shoot();
     }
 
     public void OnEnable()

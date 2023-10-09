@@ -6,6 +6,7 @@ public class PlayerSounds : Audio
 
     private const string _TANK_IS_RUNNING_SOUND_PATH = "Sounds/Tanks/TankIsRunning";
     private const string _TANK_IS_MOVING_SOUND_PATH = "Sounds/Tanks/TankIsMoving";
+    private const string _TANK_IS_START_MOVING_SOUND_PATH = "Sounds/Tanks/TankIsStartMoving";
     private const string _TANK_START_UP = "Sounds/Tanks/TankStartUp";
 
     private string _indexSound;
@@ -13,20 +14,34 @@ public class PlayerSounds : Audio
     public override void Initialize()
     {
         _indexSound = Random.Range(1, _maxAmountSounds).ToString();
+        SoundStartUp();
         SoundRunning();
+    }
+
+    private void SoundStartUp()
+    {
+        AudioClip audioClip = (AudioClip)Resources.Load(_TANK_START_UP + _indexSound);
+        PlaySound(audioClip);
+    }
+
+    private void SoundStartMoving()
+    {
+        AudioClip audioClip = (AudioClip)Resources.Load(_TANK_IS_START_MOVING_SOUND_PATH + _indexSound);
+        PlaySound(audioClip);
     }
 
     public void SoundRunning()
     {
-        AudioClip currentAudioClip = (AudioClip)Resources.Load(_TANK_IS_RUNNING_SOUND_PATH + _indexSound);
-        PlayMusic(currentAudioClip);
+        AudioClip audioClip = (AudioClip)Resources.Load(_TANK_IS_RUNNING_SOUND_PATH + _indexSound);
+        PlayMusic(audioClip);
         print("run");
     }
 
     public void SoundMoving()
     {
-        AudioClip currentAudioClip = (AudioClip)Resources.Load(_TANK_IS_MOVING_SOUND_PATH + _indexSound);
-        PlayMusic(currentAudioClip); 
+        SoundStartMoving();
+        AudioClip audioClip = (AudioClip)Resources.Load(_TANK_IS_MOVING_SOUND_PATH + _indexSound);
+        PlayMusic(audioClip); 
         print("move");
     } 
 }   
