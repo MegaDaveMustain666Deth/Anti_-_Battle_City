@@ -8,6 +8,7 @@ public class PlayerSounds : Audio
     private const string _TANK_IS_MOVING_SOUND_PATH = "Sounds/Tanks/TankIsMoving";
     private const string _TANK_IS_START_MOVING_SOUND_PATH = "Sounds/Tanks/TankIsStartMoving";
     private const string _TANK_START_UP = "Sounds/Tanks/TankStartUp";
+    private const string _TANK_FIRE = "Sounds/Tanks/TankFire1";
 
     private string _indexSound;
 
@@ -16,6 +17,7 @@ public class PlayerSounds : Audio
         _indexSound = Random.Range(1, _maxAmountSounds).ToString();
         SoundStartUp();
         SoundRunning();
+        Player.Instance.OnShoot += SoundShoot;
     }
 
     private void SoundStartUp()
@@ -44,4 +46,10 @@ public class PlayerSounds : Audio
         PlayMusic(audioClip); 
         print("move");
     } 
+
+    public void SoundShoot()
+    {
+        AudioClip audioClip = (AudioClip)Resources.Load(_TANK_FIRE);
+        PlaySound(audioClip);
+    }
 }   

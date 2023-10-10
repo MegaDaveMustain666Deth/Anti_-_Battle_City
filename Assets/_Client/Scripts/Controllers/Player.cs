@@ -6,9 +6,9 @@ public class Player : PersistentSingleton<Player>
 
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private PlayerSounds _playerSounds;
-    [SerializeField] private TankWeapon _weapon;
+    [SerializeField] private Weapon _weapon;
 
-    public event Action OnShoot;
+    public Action OnShoot;
     
     public void Initialize()
     {
@@ -42,6 +42,6 @@ public class Player : PersistentSingleton<Player>
 
     public void Shoot()
     {
-        _weapon.PerformShot();
+        _weapon.Attack();
     }
 }

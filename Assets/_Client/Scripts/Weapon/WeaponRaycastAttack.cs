@@ -9,8 +9,10 @@ public abstract class WeaponRaycastAttack : Weapon
     [SerializeField] protected int amountProjectTile;
     [SerializeField] private float distanceShot;
 
-    public virtual void PerformShot()
+    public override void Attack()
     {
+        base.Attack();
+
         animationPoint.SetActive(true);
         RaycastHit2D hit = Physics2D.Raycast(firePoint.position, transform.up, distanceShot);
 

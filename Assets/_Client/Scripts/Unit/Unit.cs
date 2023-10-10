@@ -5,7 +5,7 @@ public abstract class Unit : MonoBehaviour
     [SerializeField] protected int maxHealth;
     [SerializeField] protected int health;
 
-    private void Start()
+    publivc void Start()
     {
         health = maxHealth;
     }
