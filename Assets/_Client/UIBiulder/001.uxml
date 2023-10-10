@@ -1,7 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/_Client/UIBiulder/Stiles/menuButtonStile.uss?fileID=7433441132597879392&amp;guid=345cb6d5a3b45374c8fa2e4b9207e9ba&amp;type=3#menuButtonStile" />
-    <ui:VisualElement name="VisualElement" style="flex-grow: 1; -unity-background-image-tint-color: rgb(0, 0, 0);">
-        <ui:VisualElement name="visual" style="height: 268px; align-items: center;" />
-        <ui:VisualElement name="interehtable" style="flex-grow: 1; align-items: center; translate: 0 0; width: auto;" />
-    </ui:VisualElement>
-</ui:UXML>
