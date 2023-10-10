@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Client/UIBiulder/Stiles/menuButtonStile.uss?fileID=7433441132597879392&amp;guid=345cb6d5a3b45374c8fa2e4b9207e9ba&amp;type=3#menuButtonStile" />
+    <ui:Button text="Start" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ButtonPlay" class="menu-buttons menu-Bottons" style="-unity-text-align: upper-center; width: 300px;" />
+    <ui:Button text="Settings" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ButtonSettings" class="menu-buttons" style="top: auto; width: 300px; -unity-text-align: upper-center;" />
+    <ui:Button text="Exit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ButtonExit" class="menu-buttons" style="width: 300px; -unity-text-align: upper-center;" />
+</ui:UXML>

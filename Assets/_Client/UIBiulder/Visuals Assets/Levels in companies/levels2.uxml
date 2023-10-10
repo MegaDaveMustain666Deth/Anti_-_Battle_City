@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Client/UIBiulder/Stiles/menuButtonStile.uss?fileID=7433441132597879392&amp;guid=345cb6d5a3b45374c8fa2e4b9207e9ba&amp;type=3#menuButtonStile" />
+    <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" focusable="false" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" style="height: 125px; align-self: auto; justify-content: flex-start; align-items: center;">
+        <ui:Button text="level 1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="level1" class="menu-buttons" style="background-color: rgba(255, 255, 255, 0); -unity-text-align: upper-center;" />
+        <ui:Button text="level 2" parse-escape-sequences="true" display-tooltip-when-elided="true" name="level2" class="menu-buttons" style="background-color: rgba(255, 255, 255, 0); -unity-text-align: upper-center;" />
+        <ui:Button text="level 3" parse-escape-sequences="true" display-tooltip-when-elided="true" name="level3" class="menu-buttons" style="background-color: rgba(188, 188, 188, 0); -unity-text-align: upper-center;" />
+        <ui:Button text="level 4" parse-escape-sequences="true" display-tooltip-when-elided="true" name="level4" class="menu-buttons" style="background-color: rgba(188, 188, 188, 0); -unity-text-align: upper-center;" />
+        <ui:Button text="level 5" parse-escape-sequences="true" display-tooltip-when-elided="true" name="level5" class="menu-buttons" style="background-color: rgba(188, 188, 188, 0); -unity-text-align: upper-center;" />
+    </ui:ScrollView>
+    <ui:Button text="Back&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BackButton" class="menu-buttons" style="-unity-text-align: upper-center;" />
+</ui:UXML>
