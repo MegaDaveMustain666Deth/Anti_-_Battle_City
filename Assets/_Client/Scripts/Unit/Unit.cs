@@ -3,9 +3,9 @@ using UnityEngine;
 public abstract class Unit : MonoBehaviour
 {
     [SerializeField] protected int maxHealth;
-    [SerializeField] protected int health;
+    protected int health;
 
-    publivc void Start()
+    private void Start()
     {
         health = maxHealth;
     }

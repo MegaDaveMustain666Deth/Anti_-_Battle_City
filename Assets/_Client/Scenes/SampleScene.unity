@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 338884294}
   - component: {fileID: 338884293}
   - component: {fileID: 338884292}
+  - component: {fileID: 338884298}
   m_Layer: 0
   m_Name: ww2_top_view_hull7
   m_TagString: Untagged
@@ -315,6 +316,19 @@ Transform:
   - {fileID: 1600231214}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &338884298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338884291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fe4f179a8aa75946b4d8685bd3d2d81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &403148253
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,7 +743,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  health: 0
 --- !u!1 &1505347345
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,7 +789,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3000
-  health: 0
 --- !u!212 &1505347348
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -892,6 +904,7 @@ GameObject:
   - component: {fileID: 1600231211}
   - component: {fileID: 1600231212}
   - component: {fileID: 1600231215}
+  - component: {fileID: 1600231216}
   m_Layer: 0
   m_Name: ww2_top_view_turret7
   m_TagString: Untagged
@@ -1097,7 +1110,22 @@ MonoBehaviour:
   _collider: {fileID: 338884294}
   amountProjectTile: 0
   distanceShot: 50
-  _timeOfRecharge: 0
+  _timeOfRecharge: 10
+--- !u!114 &1600231216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600231210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd2ecb23da5c3d48933b569d4e4a38d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 1600231212}
+  _musicSource: {fileID: 1600231212}
+  _maxAmountSounds: 0
 --- !u!1 &1659458386
 GameObject:
   m_ObjectHideFlags: 0
