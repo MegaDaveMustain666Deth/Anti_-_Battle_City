@@ -1,26 +1,47 @@
 using UnityEngine;
+using System;
 
 public class Player : PersistentSingleton<Player>
 {
-    [SerializeField] private PlayerMovement _playerMovement;
 
+    [SerializeField] private PlayerMovement _playerMovement;
+    [SerializeField] private PlayerSounds _playerSounds;
+    [SerializeField] private Weapon _weapon;
+
+    public Action OnShoot;
+    
     public void Initialize()
     {
-        _playerMovement = GetComponent<PlayerMovement>();
+        _playerSounds.Initialize();
     }
 
-    public void setDirectionMove(float direction)
+    public void SetDirectionMove(float direction)
     {
         _playerMovement.Move(direction);
     }
     
-    public void setDirectionRotation(float direction)
+    public void SetDirectionRotation(float direction)
     {
         _playerMovement.Rotation(direction);
     }    
 
-    public void setDirectionRotationTurret(float direction)
+    public void SetDirectionRotationTurret(float direction)
     {
         _playerMovement.RotationTurret(direction);
+    }
+
+    public void SetSoundMoving()
+    {
+        _playerSounds.SoundMoving();
+    }
+
+    public void SetSoundRunning()
+    {
+        _playerSounds.SoundRunning();
+    }
+
+    public void Shoot()
+    {
+        _weapon.Attack();
     }
 }
