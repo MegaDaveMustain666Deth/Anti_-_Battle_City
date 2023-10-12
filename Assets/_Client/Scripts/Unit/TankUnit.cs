@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TankUnit : Unit
 {
+    public int GetHP() => base.health;
     public void Health(int health)
     {
         base.health += health;
