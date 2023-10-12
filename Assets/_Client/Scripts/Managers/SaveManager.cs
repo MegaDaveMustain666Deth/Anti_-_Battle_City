@@ -29,8 +29,6 @@ public class SaveManager : MonoBehaviour
         FileStream fs = new FileStream(filePath, FileMode.Open);
         DataSave.Save save = (DataSave.Save)bf.Deserialize(fs);
 
-        FindObjectOfType<MenuController>().LoadData();
-
         fs.Close();
     }
 }

@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Client/UIBiulder/Stiles/menuButtonStile.uss?fileID=7433441132597879392&amp;guid=345cb6d5a3b45374c8fa2e4b9207e9ba&amp;type=3#menuButtonStile" />
+    <ui:VisualElement style="flex-grow: 1; justify-content: center; align-items: center;">
+        <ui:Label tabindex="-1" text="Congratulation!&#10;You complite this level!" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font-definition: url(&apos;project://database/Assets/_Client/Fonts/better-vcr4.asset?fileID=11400000&amp;guid=6fcaa74ee564b76439f810554aa63a25&amp;type=2#better-vcr4&apos;); font-size: 18px; -unity-text-align: upper-center; -unity-font: url(&apos;project://database/Assets/_Client/Fonts/better-vcr4.0.ttf?fileID=12800000&amp;guid=2fd9899cb5d228e47b12453ed5c2a2af&amp;type=3#better-vcr4.0&apos;); color: rgb(255, 255, 255); -unity-font-style: normal;" />
+        <ui:Button text="Go to next level" parse-escape-sequences="true" display-tooltip-when-elided="true" name="NextLevel" class="menu-buttons" style="font-size: 25px; -unity-font: url(&apos;project://database/Assets/_Client/Fonts/better-vcr4.0.ttf?fileID=12800000&amp;guid=2fd9899cb5d228e47b12453ed5c2a2af&amp;type=3#better-vcr4.0&apos;);" />
+        <ui:Button text="Go to menu" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ToMenu" class="menu-buttons" style="font-size: 25px; -unity-font: url(&apos;project://database/Assets/_Client/Fonts/better-vcr4.0.ttf?fileID=12800000&amp;guid=2fd9899cb5d228e47b12453ed5c2a2af&amp;type=3#better-vcr4.0&apos;);" />
+    </ui:VisualElement>
+</ui:UXML>

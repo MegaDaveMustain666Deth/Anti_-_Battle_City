@@ -15,7 +15,7 @@ public class MenuController : MonoBehaviour
     private VisualElement _CompaniesButtons;
     private VisualElement _currentListLevels;
 
-    private DataSave.Save save;
+    private DataSave.Save save = new DataSave.Save();
     private int _maxCompany;
     private int _maxLevel;
 
@@ -39,13 +39,10 @@ public class MenuController : MonoBehaviour
         _firstmenu = _firstMenuAsset.CloneTree();
         _Settings = _settingsAsset.CloneTree();
 
-        OpenFirstMenu();
-    }
-
-    public void LoadData()
-    {
         _maxCompany = save.GetCompany();
         _maxLevel = save.GetLevel();
+
+        OpenFirstMenu();
     }
 
     private void OpenFirstMenu()
