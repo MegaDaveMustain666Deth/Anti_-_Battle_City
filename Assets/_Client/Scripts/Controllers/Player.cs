@@ -1,21 +1,9 @@
 using UnityEngine;
 using System;
 
-public class Player : PersistentSingleton<Player>
+public class Player : UnitController, PersistentSingleton<Player>
 {
-
-    [SerializeField] private PlayerMovement _playerMovement;
-    [SerializeField] private PlayerSounds _playerSounds;
-    [SerializeField] private Unit _unit;
-    [SerializeField] private Weapon _weapon;
-
-    public Action OnShoot;
-    
-    public void Initialize()
-    {
-        _playerSounds.Initialize();
-        _unit.Initialize();
-    }
+    [SerializeField] protected PlayerMovement _playerMovement;
 
     public void SetDirectionMove(float direction)
     {
