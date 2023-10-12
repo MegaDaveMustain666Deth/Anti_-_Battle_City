@@ -1,19 +1,19 @@
 using UnityEngine;
+using Tools;
 
 public abstract class Unit : MonoBehaviour
 {
     [SerializeField] protected int maxHealth;
-    protected int health;
 
-    private void Start()
+    protected Health _health;
+    public int health;
+
+    public virtual void Initialize()
     {
         health = maxHealth;
     }
 
-    public abstract void TakeDamage(int damage);
+    public abstract void TakeDamageTank(int damage);
 
-    protected void Dead()
-    {
-        Destroy(gameObject);
-    }
+    public abstract void TakeDamageEnviroment(Vector3 tilePosition);
 }

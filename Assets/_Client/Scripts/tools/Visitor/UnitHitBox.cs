@@ -11,6 +11,6 @@ public class UnitHitBox : MonoBehaviour, IWeaponVisitor
 
     private void DefaultRaycastVisit(Weapon weapon, RaycastHit2D hit)
     {
-        _unit.TakeDamage(weapon.damage);
+        _unit.TakeDamageTank(weapon.damage);
     }
 }

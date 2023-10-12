@@ -11,7 +11,8 @@ public class EnviromentHitBox : MonoBehaviour, IWeaponVisitor
 
     private void DefaultRaycastVisit(Weapon weapon, RaycastHit2D hit)
     {
-        _unit.TakeDamage(weapon.damage);
+        print(hit.point);
+        _unit.TakeDamageEnviroment(hit.point);
     }
 
 }

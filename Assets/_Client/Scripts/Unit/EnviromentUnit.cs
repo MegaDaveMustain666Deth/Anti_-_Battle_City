@@ -1,9 +1,28 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
+using Tools;
+using NavMeshPlus.Components;
 
 public class EnviromentUnit : Unit
 {
-    public override void TakeDamage(int damage)
+    [SerializeField] private Tilemap _destructibleTilemap;
+    [SerializeField] private NavMeshSurface _navMesh;
+
+    public override void Initialize()
     {
-        Dead();
+        base.Initialize();
+        _health = new Health(this, _destructibleTilemap);
+
+    }
+
+    public override void TakeDamageEnviroment(Vector3 tilePosition)
+    {
+        _destructibleTilemap.SetTile(_destructibleTilemap.WorldToCell(tilePosition), null);
+        _navMesh.BuildNavMesh();
+    }
+
+    public override void TakeDamageTank(int damage)
+    {
+        
     }
 }

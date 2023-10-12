@@ -6,6 +6,7 @@ public class Player : PersistentSingleton<Player>
 
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private PlayerSounds _playerSounds;
+    [SerializeField] private Unit _unit;
     [SerializeField] private Weapon _weapon;
 
     public Action OnShoot;
@@ -13,6 +14,7 @@ public class Player : PersistentSingleton<Player>
     public void Initialize()
     {
         _playerSounds.Initialize();
+        _unit.Initialize();
     }
 
     public void SetDirectionMove(float direction)

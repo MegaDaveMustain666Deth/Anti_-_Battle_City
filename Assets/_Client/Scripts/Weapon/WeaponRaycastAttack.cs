@@ -8,19 +8,18 @@ public abstract class WeaponRaycastAttack : Weapon
 
     [SerializeField] protected int amountProjectTile;
     [SerializeField] private float distanceShot;
-    [SerializeField] private float _timeOfRecharge;
+    [SerializeField] private float _fireRate;
 
-    private float _currentTimeOfRecharge;
-    private Timer timerRechardge;
+    private float _nextFire;
 
     public override void Attack()
     {
-        if (_timeOfRecharge < timerRechardge?.GetTime() || _timeOfRecharge < _currentTimeOfRecharge)
+        if (Time.time < _nextFire)
         {
-            _currentTimeOfRecharge = timerRechardge.GetTime();
-            timerRechardge.StopCountingTime();
             return;
         }
+
+        _nextFire = Time.time + _fireRate;
 
         base.Attack();
 
@@ -31,8 +30,6 @@ public abstract class WeaponRaycastAttack : Weapon
         {
             ScanHit(hit);
         }
-
-        SetTimer();
     }
 
     private void ScanHit(RaycastHit2D hit)
@@ -43,12 +40,6 @@ public abstract class WeaponRaycastAttack : Weapon
         {
             Accept(weaponVisitor, hit);
         }
-    }
-
-    private void SetTimer()
-    {
-        timerRechardge = new Timer(this);
-        timerRechardge.Set(_timeOfRecharge);
     }
 
     protected abstract void Accept(IWeaponVisitor weaponVisitor, RaycastHit2D hit);

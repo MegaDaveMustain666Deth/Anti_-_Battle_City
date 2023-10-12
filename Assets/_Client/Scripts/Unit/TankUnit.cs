@@ -1,26 +1,21 @@
 using UnityEngine;
+using Tools;
 
 public class TankUnit : Unit
 {
-    public void Health(int health)
+    public override void Initialize()
     {
-        base.health += health;
-
-        print(gameObject.name + health.ToString());
-
-        if(base.health > maxHealth)
-        {
-            base.health = maxHealth;
-        }
+        base.Initialize();
+        _health = new Health(this);
     }
 
-    public override void TakeDamage(int damage)
+    public override void TakeDamageTank(int damage)
     {
-        health -= damage;
-
-        if (health <= 0)
-        {
-            Dead();
-        }
+        _health.TakeDamageTank(damage);
     }
+
+    public override void TakeDamageEnviroment(Vector3 tilePosition)
+    {
+
+    } 
 }
