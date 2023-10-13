@@ -1,8 +1,22 @@
 using UnityEngine;
 using System;
 
-public class Player : UnitController, PersistentSingleton<Player>
+public class Player : UnitController
 {
+    public static Player Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     [SerializeField] protected PlayerMovement _playerMovement;
 
     public void SetDirectionMove(float direction)
