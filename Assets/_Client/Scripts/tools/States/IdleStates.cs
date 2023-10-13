@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using Tools;
+﻿using Tools;
 
 public class IdleStates : EnemyState
 {
+
     public override void Enter()
     {
 

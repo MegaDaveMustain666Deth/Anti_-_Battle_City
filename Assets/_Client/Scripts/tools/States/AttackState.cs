@@ -1,17 +1,13 @@
 ﻿using UnityEngine.AI;
-using UnityEngine;
 using Tools;
 
 namespace Tools
 {
-    public class FollowStates : EnemyState
+    public class AttackState : EnemyState
     {
-        private Transform thisGameObjectTransform;
-
-        public FollowStates(NavMeshAgent agent, Transform thisTransform)
+        public AttackState(NavMeshAgent agent)
         {
             _agent = agent;
-            thisGameObjectTransform = thisTransform;    
         }
 
         public override void Enter()
@@ -29,6 +25,5 @@ namespace Tools
         {
 
         }
-
     }
 }

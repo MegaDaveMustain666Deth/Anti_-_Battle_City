@@ -3,7 +3,6 @@ using System;
 
 [RequireComponent(typeof(TankUnit))]
 [RequireComponent(typeof(UnitHitBox))]
-[RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class UnitController : MonoBehaviour    

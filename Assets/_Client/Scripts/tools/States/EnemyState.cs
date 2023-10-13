@@ -6,7 +6,6 @@ namespace Tools
     public abstract class EnemyState
     {
         public NavMeshAgent _agent;
-        
 
         public abstract void Enter();
         public abstract void Exit();

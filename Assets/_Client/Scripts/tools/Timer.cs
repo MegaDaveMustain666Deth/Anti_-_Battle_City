@@ -2,55 +2,58 @@
 using System.Collections;
 using System;
 
-public class Timer
+namespace Tools
 {
-    private float _time;
-    private float _remainigTime;
-
-    private IEnumerator _countdown;
-    private MonoBehaviour _context;
-
-    public event Action<float> HasBeenUpdated;
-    public event Action TimeIsOver;
-
-    public Timer(MonoBehaviour context) => _context = context;
-
-    public void Set(float time)
+    public class Timer
     {
-        this._time = time;
-        _remainigTime = this._time;
-    }
+        private float _time;
+        private float _remainigTime;
 
-    public void StartCountingTime()
-    {
-        _countdown = Countdown();
-        _context.StartCoroutine(_countdown);
-    }
+        private IEnumerator _countdown;
+        private MonoBehaviour _context;
 
-    public void StopCountingTime()
-    {
-        if(_countdown != null)
+        public event Action<float> HasBeenUpdated;
+        public event Action TimeIsOver;
+
+        public Timer(MonoBehaviour context) => _context = context;
+
+        public void Set(float time)
         {
-            _context.StopCoroutine(_countdown);
-        }
-    }
-
-    private IEnumerator Countdown()
-    {
-        while (_remainigTime >= 0)
-        {
-            _remainigTime -=Time.deltaTime;
-
-            HasBeenUpdated?.Invoke(_remainigTime / _time);
-
-            yield return null;
+            this._time = time;
+            _remainigTime = this._time;
         }
 
-        TimeIsOver?.Invoke();
-    }
+        public void StartCountingTime()
+        {
+            _countdown = Countdown();
+            _context.StartCoroutine(_countdown);
+        }
 
-    public float GetTime()
-    {
-        return _remainigTime;
+        public void StopCountingTime()
+        {
+            if (_countdown != null)
+            {
+                _context.StopCoroutine(_countdown);
+            }
+        }
+
+        private IEnumerator Countdown()
+        {
+            while (_remainigTime >= 0)
+            {
+                _remainigTime -= Time.deltaTime;
+
+                HasBeenUpdated?.Invoke(_remainigTime / _time);
+
+                yield return null;
+            }
+
+            TimeIsOver?.Invoke();
+        }
+
+        public float GetTime()
+        {
+            return _remainigTime;
+        }
     }
 }
