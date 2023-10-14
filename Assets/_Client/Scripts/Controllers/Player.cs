@@ -17,6 +17,10 @@ public class Player : UnitController
         }
     }
 
+    public static Action ChangeHP;
+
+    public int GetHP() => _unit.health;
+
     [SerializeField] protected PlayerMovement _playerMovement;
 
     public void SetDirectionMove(float direction)
