@@ -13,7 +13,7 @@ public class Enemy : UnitController
         _weapon.Attack();
     }
 
-    private void OnCollisionStay2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         _direction = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
 

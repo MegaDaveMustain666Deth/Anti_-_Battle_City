@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BaseHitBox : IWeaponVisitor
+public class BaseHitBox : MonoBehaviour, IWeaponVisitor
 {
     [SerializeField] private Unit _unit;
 
