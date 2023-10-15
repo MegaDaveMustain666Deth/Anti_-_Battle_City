@@ -13,9 +13,12 @@ public class Enemy : UnitController
         _weapon.Attack();
     }
 
-    private void OnTriggerEnter2D(Collision2D other)
+    private void OnCollisionStay2D(Collision2D other)
     {
-        RaycastHit2D checkMoveUp = Physics2D.Raycast(transform.position + Vector3.one, Vector2.up, 0.5f);
+        _direction = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
+
+
+        /*RaycastHit2D checkMoveUp = Physics2D.Raycast(transform.position + Vector3.one, Vector2.up, 0.5f);
         if(!checkMoveUp)
         {
             _direction = new Vector2(0, 1);
@@ -45,6 +48,6 @@ public class Enemy : UnitController
             _direction = new Vector2(-1, 0);
             print("left");
             return;
-        }
+        }*/
     }
 }
