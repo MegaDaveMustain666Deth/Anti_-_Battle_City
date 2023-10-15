@@ -1,41 +1,50 @@
-﻿using UnityEngine.AI;
-using UnityEngine;
-using Tools;
+﻿using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Enemy : UnitController
 {
-    [SerializeField] private NavMeshAgent _agent;
-    [SerializeField] private float FollowDistanse;
-    [SerializeField] private float AttackDistance;
-    
-    
-    private StateMachine _stateMachine;
+    [SerializeField] private TankMovement _tankMovement;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-        _stateMachine = new StateMachine(new IdleStates());
-    }
+    private Vector2 _direction = new Vector2(0, 1);
 
     private void Update()
     {
-        _stateMachine.Update();
+        _tankMovement.Move(_direction);
+        _weapon.Attack();
+    }
 
-        float toPlayer = Vector2.Distance(Player.Instance.transform.position, transform.position);
-        if (toPlayer < FollowDistanse)
+    private void OnTriggerEnter2D(Collision2D other)
+    {
+        RaycastHit2D checkMoveUp = Physics2D.Raycast(transform.position + Vector3.one, Vector2.up, 0.5f);
+        if(!checkMoveUp)
         {
-            _stateMachine.ChangeState(new IdleStates());    
-            print("follow");
+            _direction = new Vector2(0, 1);
+            print("up");
+            return;
         }
-        else if (FollowDistanse >= toPlayer && toPlayer >= AttackDistance)
+
+        RaycastHit2D checkMoveRight = Physics2D.Raycast(transform.position + Vector3.one, Vector2.right, 0.5f);
+        if(!checkMoveRight)
         {
-            _stateMachine.ChangeState(new FollowStates(_agent, gameObject.transform));
-            print("follow");
+            _direction = new Vector2(-1, 0);
+            print("right");
+            return;
         }
-        else if(AttackDistance <= toPlayer)
+
+        RaycastHit2D checkMoveDown = Physics2D.Raycast(transform.position + Vector3.one, Vector2.down, 0.5f);
+        if(!checkMoveDown)
         {
-            _stateMachine.ChangeState(new AttackState(_agent));
-            print("attack");
+            _direction = new Vector2(0, -1);
+            print("down");
+            return;
+        }
+
+        RaycastHit2D checkMoveLeft = Physics2D.Raycast(transform.position + Vector3.one, Vector2.left, 0.5f);
+        if(!checkMoveLeft)
+        {
+            _direction = new Vector2(-1, 0);
+            print("left");
+            return;
         }
     }
 }

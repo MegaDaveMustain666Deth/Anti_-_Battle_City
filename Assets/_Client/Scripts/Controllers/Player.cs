@@ -17,31 +17,28 @@ public class Player : UnitController
         }
     }
 
-    [SerializeField] protected PlayerMovement _playerMovement;
+    [SerializeField] protected TankMovement _playerMovement;
 
-    public void SetDirectionMove(float direction)
+    public void SetDirectionMove(Vector2 direction)
     {
         _playerMovement.Move(direction);
-    }
-    
-    public void SetDirectionRotation(float direction)
-    {
-        _playerMovement.Rotation(direction);
-    }    
-
-    public void SetDirectionRotationTurret(float direction)
-    {
-        _playerMovement.RotationTurret(direction);
-    }
-
-    public void SetSoundMoving()
-    {
-        _playerSounds.SoundMoving();
     }
 
     public void SetSoundRunning()
     {
-        _playerSounds.SoundRunning();
+        _unitSounds.SoundRunning();
+    }
+
+    public void StartMoving(float direction)
+    {   
+        _unitSounds.SoundMoving();
+        _playerMovement.RotationMove(direction);
+    }
+
+    public void StartRotation(float direction)
+    {
+        _unitSounds.SoundMoving();
+        _playerMovement.Rotation(direction);
     }
 
     public void Shoot()

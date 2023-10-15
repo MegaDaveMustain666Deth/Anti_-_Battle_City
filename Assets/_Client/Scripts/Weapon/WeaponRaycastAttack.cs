@@ -3,9 +3,6 @@ using UnityEngine;
 public abstract class WeaponRaycastAttack : Weapon
 {
     [SerializeField] protected Transform firePoint;
-    [SerializeField] protected GameObject animationPoint;
-    [SerializeField] private Collider2D _collider;
-
     [SerializeField] protected int amountProjectTile;
     [SerializeField] private float distanceShot;
     [SerializeField] private float _fireRate;
@@ -23,7 +20,6 @@ public abstract class WeaponRaycastAttack : Weapon
 
         base.Attack();
 
-        animationPoint.SetActive(true);
         RaycastHit2D hit = Physics2D.Raycast(firePoint.position, transform.up, distanceShot);
 
         if (hit)

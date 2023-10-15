@@ -8,6 +8,11 @@ public abstract class Unit : MonoBehaviour
     protected Health _health;
     public int health;
 
+    private void Start()
+    {
+        Initialize(); 
+    }
+
     public virtual void Initialize()
     {
         health = maxHealth;

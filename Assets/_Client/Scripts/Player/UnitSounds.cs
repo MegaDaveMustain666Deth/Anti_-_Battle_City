@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerSounds : Audio
+public class TankSounds : Audio
 {
     [SerializeField] private int _maxAmountSounds;
 

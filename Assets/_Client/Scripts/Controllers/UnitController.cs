@@ -7,7 +7,7 @@ using System;
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class UnitController : MonoBehaviour    
 {
-    [SerializeField] protected PlayerSounds _playerSounds;
+    [SerializeField] protected TankSounds _unitSounds;
     [SerializeField] protected Unit _unit;
     [SerializeField] protected Weapon _weapon;
 
@@ -16,7 +16,7 @@ public abstract class UnitController : MonoBehaviour
     
     public virtual void Initialize()
     {
-        _playerSounds.Initialize();
+        _unitSounds.Initialize();
         _unit.Initialize();
     }
 }

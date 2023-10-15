@@ -18,7 +18,6 @@ public class EnviromentUnit : Unit
     public override void TakeDamageEnviroment(Vector3 tilePosition)
     {
         _destructibleTilemap.SetTile(_destructibleTilemap.WorldToCell(tilePosition), null);
-        _navMesh.BuildNavMesh();
     }
 
     public override void TakeDamageTank(int damage)
