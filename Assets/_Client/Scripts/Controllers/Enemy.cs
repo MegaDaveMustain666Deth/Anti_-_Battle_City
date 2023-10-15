@@ -7,6 +7,7 @@ public class Enemy : UnitController
 
     private Vector2 _direction = new Vector2(0, 1);
 
+    private bool l;
     private void Update()
     {
         _tankMovement.Move(_direction);
@@ -15,39 +16,26 @@ public class Enemy : UnitController
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        _direction = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
-
-
-        /*RaycastHit2D checkMoveUp = Physics2D.Raycast(transform.position + Vector3.one, Vector2.up, 0.5f);
-        if(!checkMoveUp)
-        {
-            _direction = new Vector2(0, 1);
-            print("up");
-            return;
-        }
-
-        RaycastHit2D checkMoveRight = Physics2D.Raycast(transform.position + Vector3.one, Vector2.right, 0.5f);
-        if(!checkMoveRight)
-        {
-            _direction = new Vector2(-1, 0);
-            print("right");
-            return;
-        }
-
-        RaycastHit2D checkMoveDown = Physics2D.Raycast(transform.position + Vector3.one, Vector2.down, 0.5f);
-        if(!checkMoveDown)
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + Vector3.one, Vector2.up, 0.5f);
+        if(hit)
         {
             _direction = new Vector2(0, -1);
-            print("down");
-            return;
         }
-
-        RaycastHit2D checkMoveLeft = Physics2D.Raycast(transform.position + Vector3.one, Vector2.left, 0.5f);
-        if(!checkMoveLeft)
+        hit = Physics2D.Raycast(transform.position + Vector3.one, Vector2.left, 0.5f);
+        if(hit)
+        {
+            _direction = new Vector2(1, 0);
+        }
+        hit = Physics2D.Raycast(transform.position + Vector3.one, Vector2.down, 0.5f);
+        if(hit)
+        {
+            _direction = new Vector2(0, 1);
+        }
+        hit = Physics2D.Raycast(transform.position + Vector3.one, Vector2.right, 0.5f);
+        if(hit)
         {
             _direction = new Vector2(-1, 0);
-            print("left");
-            return;
-        }*/
+        }
+        //_direction = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
     }
 }
