@@ -164,8 +164,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 12
   firePoint: {fileID: 1501380459}
-  animationPoint: {fileID: 0}
-  _collider: {fileID: 0}
   amountProjectTile: 0
   distanceShot: 100
   _fireRate: 2
