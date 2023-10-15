@@ -4,14 +4,13 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] private Image _FillingImage;
+    [SerializeField] private TankUnit _tankUnit;
+    [SerializeField] private GameObject _healthBar;
 
-    private void OnEnable()
+    private void Update()
     {
-        Player.ChangeHP += UpdateCurrentHP;
-    }
-
-    private void UpdateCurrentHP()
-    {
-        _FillingImage.fillAmount = Player.Instance.GetHP()/100f;
+        _FillingImage.fillAmount = _tankUnit.GetHP() / 100;
+        float Zrotation = -transform.rotation.z;
+        _healthBar.transform.rotation = Quaternion.Euler(0, 0, Zrotation);
     }
 }

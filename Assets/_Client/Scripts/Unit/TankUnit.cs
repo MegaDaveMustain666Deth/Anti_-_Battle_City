@@ -3,6 +3,7 @@ using Tools;
 
 public class TankUnit : Unit
 {
+    public int GetHP() => base.health;
     public override void Initialize()
 
     {
@@ -13,7 +14,6 @@ public class TankUnit : Unit
     public override void TakeDamageTank(int damage)
     {
         _health.TakeDamageTank(damage);
-        if (gameObject.GetComponent<Player>() != null) Player.ChangeHP?.Invoke();
     }
 
     public override void TakeDamageEnviroment(Vector3 tilePosition)

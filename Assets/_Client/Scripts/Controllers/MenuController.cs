@@ -101,7 +101,6 @@ public class MenuController : MonoBehaviour
         _conteyner.Clear();
         _conteyner.Add(_Settings); // clean/donload
         // future settings
-        Slider volume = _conteyner.Q<Slider>("Volume");
         _backButton = _conteyner.Q<Button>("BackButton");// buttons import
         _backButton.clicked += OpenFirstMenu;
     }
