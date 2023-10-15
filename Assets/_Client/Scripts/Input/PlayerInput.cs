@@ -62,6 +62,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OnPause"",
+                    ""type"": ""Button"",
+                    ""id"": ""85ff7dbf-47ed-411a-bcf9-d71072b8dd8f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -174,6 +183,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6d23f605-1ae0-4012-a47d-119da125db61"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OnPause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -214,6 +234,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player_Rotation = m_Player.FindAction("Rotation", throwIfNotFound: true);
         m_Player_RotationTower = m_Player.FindAction("RotationTower", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
+        m_Player_OnPause = m_Player.FindAction("OnPause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -279,6 +300,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Rotation;
     private readonly InputAction m_Player_RotationTower;
     private readonly InputAction m_Player_Shoot;
+    private readonly InputAction m_Player_OnPause;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -287,6 +309,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Rotation => m_Wrapper.m_Player_Rotation;
         public InputAction @RotationTower => m_Wrapper.m_Player_RotationTower;
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
+        public InputAction @OnPause => m_Wrapper.m_Player_OnPause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -308,6 +331,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @OnPause.started += instance.OnOnPause;
+            @OnPause.performed += instance.OnOnPause;
+            @OnPause.canceled += instance.OnOnPause;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -324,6 +350,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @OnPause.started -= instance.OnOnPause;
+            @OnPause.performed -= instance.OnOnPause;
+            @OnPause.canceled -= instance.OnOnPause;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -365,5 +394,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnRotation(InputAction.CallbackContext context);
         void OnRotationTower(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnOnPause(InputAction.CallbackContext context);
     }
 }
