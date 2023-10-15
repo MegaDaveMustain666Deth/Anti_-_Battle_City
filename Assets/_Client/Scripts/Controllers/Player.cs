@@ -30,7 +30,7 @@ public class Player : UnitController
     }
 
     public void StartMoving(float direction)
-    {   
+    {
         _unitSounds.SoundMoving();
         _playerMovement.RotationMove(direction);
     }

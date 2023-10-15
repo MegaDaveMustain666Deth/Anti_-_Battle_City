@@ -10,7 +10,7 @@ public class Win : MonoBehaviour
         if (save.GetCompany() > 5)
         {
             save.SetCompany(1);
-            save.SetLevel(-5);
+            save.SetLevel(-4);
         }
         SceneManager.LoadScene("Win");
     }

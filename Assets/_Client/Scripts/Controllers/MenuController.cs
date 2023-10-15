@@ -70,14 +70,14 @@ public class MenuController : MonoBehaviour
         Button Company2 = _conteyner.Q<Button>("Company2");
         Button Company3 = _conteyner.Q<Button>("Company3");
 
-        Company1.clicked += () => OpenListLevels(level_1, 0);
-        Company2.clicked += () => OpenListLevels(level_2, 1);
-        Company3.clicked += () => OpenListLevels(level_3, 2);
+        Company1.clicked += () => OpenListLevels(level_1, 1);
+        Company2.clicked += () => OpenListLevels(level_2, 2);
+        Company3.clicked += () => OpenListLevels(level_3, 3);
     }
 
     private void OpenListLevels(VisualTreeAsset name, int number)
     {
-        if (number <= _maxCompany)
+        if (number <= (_maxCompany+1))
         {
             _currentListLevels = name.CloneTree(); // receive button clicked
             _conteyner.Clear();
@@ -85,7 +85,7 @@ public class MenuController : MonoBehaviour
             for (int i = 1; i <= 5; i++)
             {
                 Button LevelButton = _conteyner.Q<Button>("level" + i as string);
-                if (i <= _maxLevel) LevelButton.clicked += () => Play(number + LevelButton.name);
+                if (i <= (_maxLevel+1)) LevelButton.clicked += () => Play(number + LevelButton.name);
             }
             _backButton = _conteyner.Q<Button>("BackButton");
             _backButton.clicked += OpenFirstMenu;

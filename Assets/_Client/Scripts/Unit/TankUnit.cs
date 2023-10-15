@@ -3,7 +3,6 @@ using Tools;
 
 public class TankUnit : Unit
 {
-    public int GetHP() => base.health;
     public override void Initialize()
 
     {

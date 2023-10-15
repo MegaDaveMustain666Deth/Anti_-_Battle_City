@@ -15,6 +15,7 @@ public class InputManager : PersistentSingleton<InputManager>
     private void AttachPlayer()
     {
         _playerInput.Player.Shoot.performed += context => Player.Instance.Shoot();
+        _playerInput.Player.OnPause.performed += context => FindObjectOfType<PauseController>().OnPause();
     }
 
     public void OnEnable()
