@@ -41,6 +41,10 @@ namespace Tools
 
         private void DeadTank()
         {
+            if (_unit.gameObject.TryGetComponent(out Player player))
+            {
+                player.Dead();
+            }
             Object.Destroy(_unit.gameObject);
         }
     }

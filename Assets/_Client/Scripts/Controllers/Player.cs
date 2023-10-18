@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 
 public class Player : UnitController
@@ -21,7 +22,7 @@ public class Player : UnitController
 
     public void SetDirectionMove(Vector2 direction)
     {
-        _playerMovement.Move(direction);
+        _playerMovement?.Move(direction);
     }
 
     public void SetSoundRunning()
@@ -44,5 +45,10 @@ public class Player : UnitController
     public void Shoot()
     {
         _weapon.Attack();
+    }
+
+    public void Dead()
+    {
+        SceneManager.LoadScene(0);
     }
 }
